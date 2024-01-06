@@ -138,6 +138,7 @@ class AhoCorasick:
 
 
 
+
 # dynamic programming algorithm to solve LCS With expluding constraint
 def M_STR_EC_LCS(X, Y, P):
     n = len(X)

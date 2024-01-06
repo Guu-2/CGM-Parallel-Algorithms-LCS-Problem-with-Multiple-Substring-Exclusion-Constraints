@@ -230,13 +230,14 @@ def partition_block(start_row, end_row, start_col, end_col):
                     submatrix_row.insert(0 ,value)
             submatrix.append(submatrix_row)
     # submatrices.append(submatrix)
+    print(submatrix)
     return submatrix
 
 
 # dynamic programming algorithm to solve LCS With expluding constraint (solve sub_lcs )
 def sub_lcs(X , Y , block , P):
-    print(X)
-    print(Y)
+    # print(X)
+    # print(Y)
     n = len(block)
     m = len(block[0])
     # print(m)
@@ -342,12 +343,16 @@ def CGM_M_STR_EC_LCS_A(X , Y , P , processors):
     # build next matrix
     for i in range(processors):
         list_delta = get_delta(i, processors ,unique_str)
+        print(list_delta)
         for k in range(T.states_count):
             for j in list_delta:
                 # print(j)
                 next_matrix.append(T.goto[k][ord(j.lower()) - 97])
+    
+    
     mapping = linear_mapping(submatrices , processors)
     
+    print(next_matrix)
     # mapping block to processor
     for block, p in mapping:
         # print(block)

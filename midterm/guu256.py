@@ -110,7 +110,7 @@ class DAG:
         # Tạo khối con bằng cách trích xuất phần của ma trận ban đầu
         submatrix = []
         # submatrices = []
-        for row in reversed(range(start_row + 1, end_row + 1)):
+        for row in range(start_row + 1, end_row + 1):
             if  row > 0 : 
                 submatrix_row = []
                 for col in reversed(range(start_col + 1, end_col +1)):
@@ -121,6 +121,7 @@ class DAG:
                 
         # Lưu trữ ma trận con trong từ điển submatrices
         self.blocks[index] = submatrix
+        # print(submatrix)
         return submatrix
     
     # PARTITION BLOCK THEO DAG
@@ -247,24 +248,26 @@ class DAG:
         if node.get_struct_value(k) is not None:
             return node.get_struct_value(k)
         else:
-            return -9999
+            return 0
 
-# m = 8 #ĐỘ DÀi Y
-# n = 8 #ĐỘ DÀi X
-# r = 4 #SỐ NODE CỦA CÂY TÌM KIẾM
+m = 5 #ĐỘ DÀi Y
+n = 5 #ĐỘ DÀi X
+r = 5 #SỐ NODE CỦA CÂY TÌM KIẾM
 
-# processor = 3
+processor = 3
 
-# graph = DAG(m + 1, n + 1 , r + 1)
+graph = DAG(m + 1, n + 1 , r + 1)
 
+# graph.partition_block(m , n , processor)
 
+graph.print_graph()
 
 # print(test)
 
-# xx = graph.get_value(5 , 5 , 5)
+# xx = graph.get_value(5 , 5 , 4)
 # print("bef: "  + str(xx))
-# graph.set_value(5 , 5 , 5 , 9999)
-# xx = graph.get_value(5 , 5 , 5)
+# graph.set_value(5 , 5 , 4 , 9999)
+# xx = graph.get_value(5 , 5 , 4)
 # print("af: "  + str(xx))
-# graph.print_graph()
+
 

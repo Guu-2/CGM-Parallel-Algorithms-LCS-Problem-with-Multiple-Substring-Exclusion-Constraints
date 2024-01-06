@@ -62,16 +62,16 @@ class AhoCorasick:
     # States are numbered 0 up to the return value - 1, inclusive.
     def __build_matching_machine(self):
         k = len(self.words)
-        print(k)
+        # print(k)
         # Initially, we just have the 0 state
         states = 1
 
         # Convalues for goto function, i.e., fill goto
         # This is same as building a Trie for words[]
         for i in range(k):
-            print(i)
+            # print(i)
             word = self.words[i]
-            print(word)
+            # print(word)
             current_state = 0
 
             # Process all the characters of the current word
@@ -179,7 +179,7 @@ class AhoCorasick:
         # Traverse the text through the built machine
         # to find all occurrences of words
         for i in range(len(text)):
-            print(text[i])
+            # print(text[i])
             current_state = self.__find_next_state(current_state, text[i])
 
             # If match not found, move to next state
@@ -193,34 +193,36 @@ class AhoCorasick:
                     # Start index of word is (i-len(word)+1)
                     result[word].append(i-len(word)+1)
 
-        print(result)
+        # print(result)
         # Return the final result dictionary
         return result
 
-# Driver code
-if __name__ == "__main__":
-    words = ["he", "she", "his", "hers"]
-    # P = ["GT"  , "ABCTX"]
-    # Y = "ABCTXGT"
-    text = "ahishers"
+# # Driver code
+# if __name__ == "__main__":
+#     words = ["he", "she", "his", "hers"]
+#     # P = ["GT"  , "ABCTX"]
+#     # Y = "ABCTXGT"
+#     text = "ahishers"
 
-    # Create an Object to initialize the Trie
-    aho_chorasick = AhoCorasick(words)
+#     # Create an Object to initialize the Trie
+#     aho_chorasick = AhoCorasick(words)
+    
+#     print(aho_chorasick.states_count)
 
-    # Get the result
-    result = aho_chorasick.search_words(text)
+# #     # Get the result
+# #     result = aho_chorasick.search_words(text)
 
-    # Print the result
-    for word in result:
-        for i in result[word]:
-            print("Word", word, "appears from", i, "to", i+len(word)-1)
+# #     # Print the result
+# #     for word in result:
+# #         for i in result[word]:
+# #             print("Word", word, "appears from", i, "to", i+len(word)-1)
             
             
-    current_state = 0
-    next_input = 'h'
-    T = aho_chorasick.out[1]
+# #     current_state = 0
+# #     next_input = 'h'
+# #     T = aho_chorasick.out[1]
     
     
     
-    print(T)
-# This code is contributed by Md Azharuddin
+#     # print(T)
+# # This code is contributed by Md Azharuddin
